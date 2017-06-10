@@ -19,6 +19,17 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//首頁
 Route::get('/', function () {
-    return view('welcome')->with('name', 'tad')->with('say', '嗨...');
+    return view('welcome');
 });
+
+//建立活動的表單
+Route::get('/action/create', function () {
+    return view('create');
+})->name('action.create');
+
+//儲存
+Route::post('/action', function () {
+    return view('welcome')->with('content', '儲存完成');
+})->name('action.store');
