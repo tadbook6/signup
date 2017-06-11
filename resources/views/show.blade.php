@@ -29,4 +29,22 @@
     <a href="{!!route('signup.create' , $action->id)!!}" class="btn btn-success">我要報名</a>
   </div>
 
+  <hr>
+
+  <h2>報名者一覽</h2>
+  <table class="table table-condensed table-bordered table-hover">
+    <tbody>
+      @forelse ($action->signups as $signup)
+        <tr>
+          <td>{{$signup->name}} {{$signup->sex}}</td>
+          <td>{{$signup->tel}}</td>
+          <td>{{$signup->email}}</td>
+        </tr>
+      @empty
+        <div class="alert alert-danger">尚無報名者</div>
+      @endforelse
+
+    </tbody>
+  </table>
+
 @stop
