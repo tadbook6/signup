@@ -10,26 +10,31 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::pattern('id', '[0-9]+');
+Route::get('/', 'ActionController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//首頁
-Route::get('/', function () {
-    return view('welcome');
-});
+//建立活動首頁
+Route::get('/action', 'ActionController@index')->name('action.index');
+
+//顯示
+Route::get('/action/{id}', 'ActionController@show')->name('action.show');
 
 //建立活動的表單
-Route::get('/action/create', function () {
-    return view('create');
-})->name('action.create');
+Route::get('/action/create', 'ActionController@create')->name('action.create');
 
 //儲存
-Route::post('/action', function () {
-    return view('welcome')->with('content', '儲存完成');
-})->name('action.store');
+Route::post('/action', 'ActionController@store')->name('action.store');
+
+//編輯
+Route::get('/action/{id}/edit', 'ActionController@edit')
+    ->name('action.edit');
+//更新
+Route::patch('/action/{id}', 'ActionController@update')
+    ->name('action.update');
+//刪除
+Route::delete('/action/{id}', 'ActionController@destroy')
+    ->name('action.destroy');

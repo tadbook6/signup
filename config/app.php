@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
      */
 
-    'name'            => env('APP_NAME', '活動報名'),
+    'name'            => env('APP_NAME', '活動報名系統'),
 
     /*
     |--------------------------------------------------------------------------
