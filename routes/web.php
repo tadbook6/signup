@@ -38,3 +38,9 @@ Route::patch('/action/{id}', 'ActionController@update')
 //刪除
 Route::delete('/action/{id}', 'ActionController@destroy')
     ->name('action.destroy');
+
+//建立報名資料
+Route::get('/signup/create/{id}', 'SignupController@create')->name('signup.create');
+
+//儲存報名資料
+Route::post('/signup', 'SignupController@store')->name('signup.store');

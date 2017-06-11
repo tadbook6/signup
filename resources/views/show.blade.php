@@ -26,6 +26,7 @@
       <a href="{!!route('action.edit' , $action->id)!!}" class="btn btn-warning">編輯</a>
     @endif
     <a href="{!!route('action.index')!!}" class="btn btn-info">回首頁</a>
+    <a href="{!!route('signup.create' , $action->id)!!}" class="btn btn-success">我要報名</a>
   </div>
 
 @stop
